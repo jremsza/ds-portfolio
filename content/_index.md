@@ -1,13 +1,13 @@
 ---
-title: Jump-start your personal blog and portfolio with the Hugo Liftoff theme.
-subtitle: Minimal blog/portfolio theme with a focus on content creation and SEO best practices. An ideal choice for technical users jump-starting a personal brand.
-seo_title: Hugo Liftoff | Hugo theme for creators
+title: Experienced analytical chemist with aspiriations to transition into a role as a data scientist/engineer.
+subtitle: This is my portfolio to showcase my technical skills in data science, welcome to my page!
+seo_title: Jake Remsza | Chemist & MS Data Science Student
 
 primary_cta_page: "about"
 secondary_cta_page: "projects"
 
 posts_section_heading: Recent Posts
-projects_section_heading: My Projects
+projects_section_heading: Technical Portfolio
 ---
 
 {{< recent-posts 5 >}}
