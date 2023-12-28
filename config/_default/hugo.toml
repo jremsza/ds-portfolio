@@ -50,8 +50,8 @@ theme = 'hugo-liftoff'
 [taxonomies]
     tag = 'tags'
     category = 'categories'    
-    series = 'series' # Allows you to create an organized series of posts (e.g. multi-part tutorial)
-    project-type = 'project types' # Categorize projects by type (e.g. client work, personal, open source, etc.)
+    #series = 'series' # Allows you to create an organized series of posts (e.g. multi-part tutorial)
+    #project-type = 'project types' # Categorize projects by type (e.g. client work, personal, open source, etc.)
 
 [permalinks]
     [permalinks.page]
