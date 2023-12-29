@@ -5,9 +5,9 @@ disallow_search_engines = false # Disallow search engine crawling in robots.txt
 
 ### Content
 favicon = true # Enable favicon, add your favicon files to /static/ directory
-# avatar = 'avatar.png' # Custom avatar image in /assets/
-grayscale_avatar = true # Add a grayscale filter to the avatar image
-author = 'John Doe' # Default author for <head> meta
+avatar = 'default.png' # Custom avatar image in /assets/
+grayscale_avatar = false # Add a grayscale filter to the avatar image
+author = 'Jake Remsza' # Default author for <head> meta
 description = "Personal blog and portfolio site of John Doe." # Add a global meta description to <head>
 footer_text = "Built with [Hugo Liftoff](https://github.com/wjh18/hugo-liftoff) theme." # Customize footer text
 fallback_text = "No content available yet. Coming soon." # Fallback text for empty content
@@ -26,17 +26,17 @@ enable_postcss = false # Enable if you're using npm and want to utilize PostCSS 
 
 ### Web schemas
 # Open Graph
-images = ['images/default.png'] # Fallback for Open Graph and Twitter Cards images if none are present in front matter. Enter path to the image.
+images = ['image/default'] # Fallback for Open Graph and Twitter Cards images if none are present in front matter. Enter path to the image.
 ogLocale = "en_US" # Open graph locale
 
 # Twitter Cards
-twitterSite = "johndoestwitter" # Enter your twitter handle without the @
-twitterCreator = "johndoestwitter" # Enter your twitter handle without the @
+#twitterSite = "johndoestwitter" # Enter your twitter handle without the @
+#twitterCreator = "johndoestwitter" # Enter your twitter handle without the @
 
 # JSON-LD structured data schemas
-schemaName = "John Doe" # Enter your name
+schemaName = "Jake Remsza" # Enter your name
 schemaLocale = "en-US" # Structured data locale
-schemaImage = "images/default.png" # Image for Person structured data schema. Enter path to the image.
+schemaImage = "default.png" # Image for Person structured data schema. Enter path to the image.
 schemaImageWidth = 453 # Width of the above image
 schemaImageHeight = 455 # Height of the above image
 
@@ -48,11 +48,11 @@ about_page_socials = true
 
 # Enable or disable individual social icons
 [social.links]
-  twitter = "username"
-  github = "username"
+  #twitter = "username"
+  github = "jremsza"
   stack_overflow = "userid/username" # include user id
-  email = "user@example.com"
-  # linkedin = "username" # Comment out to disable
+  email = "jremsza@u.northwestern.edu"
+  linkedin = "jake-remsza-bb020234/" # Comment out to disable
   # mastodon_server = "example.social" # include subdomains if relevant, scheme not needed (defaults to https)
   # mastodon_user = "username" # don't include preceding @
 
