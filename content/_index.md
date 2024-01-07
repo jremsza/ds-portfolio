@@ -10,6 +10,15 @@ projects_section_heading: Technical Portfolio
 #posts_section_heading: Recent Posts
 ---
 
+## Education
 
+- **BS in Chemistry**
+  - University: Bradley University
+  - Graduation Year: 2013
+
+- **MS in Data Science**
+  - University: Northwestern University
+  - Expected Graduation Year: 2025 - Currently Enrolled
+  
 {{< projects 5 >}}
 
