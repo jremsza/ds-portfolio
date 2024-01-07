@@ -1,5 +1,5 @@
 ---
-title: Portfolio Project 1
+title: Stats with R
 seo_title: Portfolio Project 1
 summary: Portfolio Project 1 is my first portfolio project.
 description: Portfolio Project 1 is my first portfolio project.
