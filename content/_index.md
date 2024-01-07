@@ -7,9 +7,9 @@ primary_cta_page: "about"
 secondary_cta_page: "projects"
 
 projects_section_heading: Technical Portfolio
-posts_section_heading: Recent Posts
+#posts_section_heading: Recent Posts
 ---
 
+
 {{< projects 5 >}}
-{{< recent-posts 0 >}}
 
