@@ -25,9 +25,4 @@ source_url: https://github.com/wjh18/hugo-liftoff
 
 ---
 
-## Portfolio Project 1
-
-{{< r_project1 >}}
-This is my project 1 content in Markdown format.
-{{< /r_project1 >}}
 
