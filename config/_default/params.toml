@@ -49,10 +49,10 @@ about_page_socials = true
 # Enable or disable individual social icons
 [social.links]
   #twitter = "username"
-  github = "jremsza"
-  stack_overflow = "userid/username" # include user id
-  email = "jremsza@u.northwestern.edu"
   linkedin = "jake-remsza-bb020234/" # Comment out to disable
+  github = "jremsza"
+  email = "jremsza@u.northwestern.edu"
+  stack_overflow = "userid/username" # include user id
   # mastodon_server = "example.social" # include subdomains if relevant, scheme not needed (defaults to https)
   # mastodon_user = "username" # don't include preceding @
 

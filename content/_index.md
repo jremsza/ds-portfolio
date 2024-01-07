@@ -7,7 +7,7 @@ primary_cta_page: "about"
 secondary_cta_page: "projects"
 
 projects_section_heading: Technical Portfolio
-#posts_section_heading: Recent Posts
+
 ---
 
 ## Education
