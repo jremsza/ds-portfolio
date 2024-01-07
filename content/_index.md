@@ -10,13 +10,6 @@ projects_section_heading: Technical Portfolio
 posts_section_heading: Recent Posts
 ---
 
-
-{{< education title="BS in Chemistry" university="Bradley University" graduation_year="2013" >}}
-{{< /education >}}
-{{< education title="MS in Data Science" university="Northwestern University" graduation_year="2025 - Currently Enrolled" >}}
-{{< /education >}}
-
-
 {{< projects 5 >}}
 {{< recent-posts 0 >}}
 
