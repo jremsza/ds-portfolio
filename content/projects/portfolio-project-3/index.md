@@ -4,7 +4,7 @@ seo_title: Portfolio Project 3
 summary: Portfolio Project 3 is my third portfolio project.
 description: Portfolio Project 3 is my third portfolio project.
 slug: portfolio-project-3
-author: John Doe
+author: Jake Remsza
 
 draft: false
 date: 2023-02-20T03:52:30-05:00
@@ -12,17 +12,15 @@ lastmod:
 expiryDate: 
 publishDate: 
 
-feature_image: 
+feature_image: py.png
 feature_image_alt: 
 
 project types: 
-    - Open Source
+    - Personal
 
 techstack:
-    - Hugo
-    - HTML/CSS
-    - JavaScript
-    - Netlify
+    - Python
+    - SQL
 live_url: https://hugo-liftoff.netlify.app
 source_url: https://github.com/wjh18/hugo-liftoff
 ---
@@ -80,17 +78,13 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 
 ### Code block with backticks
 
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
+```R
+set.seed(1234)
+
+#create random sampling for integers with replacement 
+x_int <- sample(1:100, 99, replace = TRUE)
+print(x_int)
+
 ```
 
 ### Code block indented with four spaces
@@ -109,16 +103,12 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 ### Code block with Hugo's internal highlight shortcode
 
 {{< highlight html >}}
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
+set.seed(1234)
+
+#create random sampling for integers with replacement 
+x_int <- sample(1:100, 99, replace = TRUE)
+print(x_int)
+
 {{< /highlight >}}
 
 ## List Types

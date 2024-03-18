@@ -1,7 +1,7 @@
 ---
-title: Experienced analytical chemist and master's student in data science. I have aspirations to transition into a role as a data scientist/engineer.
-subtitle: This is my portfolio to showcase my technical skills in data science, welcome to my page!
-seo_title: Jake Remsza | Chemist & MS Data Science Student
+title: Data analyst with a background in chemistry. I am currently a master's student in data science at Northwestern University. I am looking for roles as a data scientist or data engineer.
+subtitle: This is my portfolio showcasing my technical skills in data science, welcome to my page!
+seo_title: Jake Remsza | Data Specialist
 
 primary_cta_page: "about"
 secondary_cta_page: "projects"
@@ -12,13 +12,13 @@ projects_section_heading: Technical Portfolio
 
 ## Education
 
-- **BS in Chemistry**
-  - University: Bradley University
-  - Graduation Year: 2013
-
 - **MS in Data Science**
   - University: Northwestern University
   - Expected Graduation Year: 2025 - Currently Enrolled
+
+- **BS in Chemistry**
+  - University: Bradley University
+  - Graduation Year: 2013
   
 ## Work History
 
@@ -36,5 +36,5 @@ projects_section_heading: Technical Portfolio
   - Documented data accurately in laboratory notebooks and laboratory information management system (SAP) and effectively communicated results to supervisors and team leads site wide.
   - Served as lead analysts and SME for the biological product testing group (e.g., HPLC, UV-Vis Testing)
   
-{{< projects 5 >}}
+{{< projects 10 >}}
 

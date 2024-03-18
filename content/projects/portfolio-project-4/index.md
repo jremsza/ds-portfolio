@@ -12,11 +12,11 @@ lastmod:
 expiryDate: 
 publishDate: 
 
-feature_image: 
-feature_image_alt: 
+feature_image: py.png
+feature_image_alt: py.png
 
 project types: 
-    - Open Source
+    - Personal
 
 techstack:
     - Hugo
