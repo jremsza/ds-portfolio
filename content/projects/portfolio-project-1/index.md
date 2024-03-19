@@ -1,8 +1,8 @@
 ---
 title: Stats with R - Part 1
 seo_title: Portfolio Project 1
-summary: The assignment data are derived from an observational study of abalones. The intent of the investigators was to predict the age of abalone from physical measurements thus avoiding the necessity of counting growth rings for aging. Ideally, a growth ring is produced each year of age. Currently, age is determined by drilling the shell and counting the number of shell rings using a microscope. This is a difficult and time consuming process. Ring clarity can be an issue. At the completion of the breeding season sexing abalone can be difficult. Similar difficulties are experienced when trying to determine the sex of immature abalone. Exploratory data analysis was done to gain insights on alternative age identifiers before abolone harvesting.
-description: This project was an assignment performed in my statistics with R course. Exploratory data analysis was done to gain insights on abalone harvesting.
+summary: This project was an assignment performed in my statistics with R course. Exploratory data analysis was done to gain insights on abalone harvesting.
+description: Portfolio Project 1 is my first portfolio project.
 slug: portfolio-project-1
 author: Jake Remsza
 
@@ -21,10 +21,13 @@ project types:
 
 techstack:
     - R 
-live_url: https://hugo-liftoff.netlify.app
+#live_url: https://hugo-liftoff.netlify.app
 source_url: https://github.com/wjh18/hugo-liftoff
 
 ---
+
+### Description:  
+The assignment data are derived from an observational study of abalones. The intent of the investigators was to predict the age of abalone from physical measurements thus avoiding the necessity of counting growth rings for aging. Ideally, a growth ring is produced each year of age. Currently, age is determined by drilling the shell and counting the number of shell rings using a microscope. This is a difficult and time consuming process. Ring clarity can be an issue. At the completion of the breeding season sexing abalone can be difficult. Similar difficulties are experienced when trying to determine the sex of immature abalone. Exploratory data analysis was done to gain insights on alternative age identifiers before abolone harvesting.
 
 ### Program Setup
 
