@@ -1,5 +1,5 @@
 ---
-title: Examing Covid-19 Data with R
+title: Analyzing COVID-19 Trends Using R: A Comprehensive Exploration
 seo_title: Portfolio Project 3
 summary: Analyzed data on new daily covid-19 cases and deaths in European Union (EU) and European Economic Area (EEA) countries. (1) Perform an Exploratory Data Analysis (EDA), (2) perform some hypothesis testing, (3) perform some correlation testing, and (4) fit and describe a linear regression model.
 description: Portfolio Project 3 is my third portfolio project.

@@ -1,5 +1,5 @@
 ---
-title: Stats with R - Part 1
+title: Exploring Abalone Data with R: Unveiling Insights for Sustainable Harvesting Practices - Part 1
 seo_title: Portfolio Project 1
 summary: This project was an assignment performed in my statistics with R course. Exploratory data analysis was done to gain insights on abalone harvesting.
 description: Portfolio Project 1 is my first portfolio project.

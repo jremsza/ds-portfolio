@@ -1,7 +1,7 @@
 ---
-title: Stats with R - Part 2
-seo_title: Examine Covid Data with R
-summary: This project was an assignment performed in my statistics with R course and is part two for analyzing abolone data. Exploratory data analysis was done to gain insights on alternitive abalone harvesting methods.
+title: Exploring Abalone Data with R: Unveiling Insights for Sustainable Harvesting Practices - Part 2
+seo_title: Stats with R - Part 2
+summary: This project was an assignment performed in my statistics with R course and is part two for analyzing abalone data. Exploratory data analysis was done to gain insights on alternative abalone harvesting methods.
 description: Portfolio Project 2 is my second portfolio project.
 slug: portfolio-project-2
 author: Jake Remsza
