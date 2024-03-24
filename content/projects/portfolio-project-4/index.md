@@ -15,11 +15,16 @@ publishDate:
 feature_image: py.png
 feature_image_alt: py.png
 
-project types: 
-    - Acedemic
+tags:
+  - Python
 
-techstack:
-    - Python
+categories:
+  - EDA
+  - Data Cleaning
+
+project types: 
+  - Academic
+  - Personal
 #live_url: https://hugo-liftoff.netlify.app
 source_url: https://github.com/wjh18/hugo-liftoff
 ---
@@ -253,7 +258,7 @@ df.shape
 
 (562171, 11)
 
-Drop duplicates - Show before and after shape.
+Dropped duplicates - Show before and after shape.
 
 ```
 #before drop na
@@ -271,7 +276,7 @@ df.shape
 (559577, 11)
 
 
-Renamed columns to make them more clear and to prepare them for being loaded into a SQL database:<br>
+##### Renamed columns to make them more clear and to prepare them for being loaded into a SQL database:<br>
     
 1. Rename DR Number to DR_Number
 2. Date Occurred to Date
@@ -288,4 +293,198 @@ Displayed the dataframe with .info() to show the changes.
 df.rename(columns = {"DR Number" : "DR_Number", "Date Occurred" : "Date", "Area Name" : "Divsion", "Victim Age" : "Age", "Victim Sex" : "Gender", "Victim Descent" : "Descent", "MO Codes" : "MO_Codes", "Reporting District" : "Reporting_District"}, inplace = True)
 
 df.info()
+```
+![alt text](image-19.png)
+
+##### Created new columns into the dataframe:<br>
+    
+1. Create a month field from Date field
+2. Create a day field from Date field
+3. Create an hour field from Time Occurred (can handle mathematically or as a string)
+4. Drop Time Occured field
+5. We will keep the Date field as it might be useful in our analysis later.
+
+Showed the dataframe with .info() and .head()
+
+```
+#Create a month field
+df["Month"] = df["Date"].apply(lambda num: num.split("/")[0])
+
+#Create a day field
+df["Day"] = df["Date"].apply(lambda num: num.split("/")[1])
+
+#Create a hour field from Time Occurred
+df["Hour"] = df["Time Occurred"].apply(lambda num: num // 100)
+
+#Drop Time Occurred
+df.drop(columns = ["Time Occurred"], inplace = True)
+
+df.head()
+df.shape
+```
+
+![alt text](image-20.png)
+
+##### Fixed the victim Age. 
+    
+1. Show your dataframe before any changes with .info()
+2. Replace the nulls with the mean of Age    
+3. The ages should be valid driving ages of 16 and over; drop any ages under 16.
+4. Convert Age to an integer.
+4. Show the Age column with .describe()
+
+```
+# created a new field in the dataframe that will track imputed ages
+# changed the dataframe name to match the current dataframe
+
+# if the Age is over 9 then imputeAge will be False, otherwise it will be True
+df['imputeAge'] = np.where(pd.isna(df['Age']), True, False)
+df.head()
+df.info()
+```
+
+![alt text](image-21.png)
+
+```
+#Replace the nulls with the mean of Age
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+
+#drop any ages under 16.
+df = df.drop(index=df[df['Age'] < 16].index)
+
+#Convert age to int
+df['Age'] = df['Age'].astype(int)
+
+df.head()
+df.describe()
+df.info()
+```
+
+![alt text](image-22.png)
+
+![alt text](image-23.png)
+
+
+##### Fixed the Gender field. 
+    
+1. The values should be M, F and X so remove the rows with H, N and null values. 
+2. Rename M to Male, F to Female and X to Other.
+3. Show value counts for Gender column after the data has been cleaned using 'dropna = False'.
+
+```
+#Remove Values with H, N and na
+df = df[(df.Gender == "M") | (df.Gender == 'F') | (df.Gender == 'X')]
+
+#Rename Gender ids
+df['Gender'] = df['Gender'].replace({'M': 'Male', 'F' : 'Female', 'X' : 'Other'})
+#gender_map = {'M': 'Male', 'F': 'Female', 'X': 'Other'}
+#df['Gender'] = df['Gender'].replace(gender_map)
+
+gender_counts = df['Gender'].value_counts(dropna=False)
+print(gender_counts)
+```
+![alt text](image-24.png)
+
+For cleaning the Victim Descent, follow the guidelines of Pew Research. 
+
+1. Include C (Chinese), Z (Asian Indian), F (Filipino), V (Vietnamese), K (Korean), J (Japanese), D (Cambodian), L (Laotion) into **A (Asian)**
+2. Change the I, U, G, S, and P into O (Other)
+3. Change the - (2 records with a dash) and the NaN into X (Unknown)
+4. Rename the values in this column: H is Hispanic, W is White, O is Other, B is Black, X is Unknown and A is Asian
+5. Do a values_count() on the Descent field to show the new breakdown using 'dropna = False'.
+
+```
+# 1.
+df['Descent'] = df['Descent'].replace({'C': 'Chinese', 'Z' : 'Asian Indian', 'F' : 'Filipino', 'V' : 'Vietnamese', 'K' : 'Korean', 'J' : 'Japanese', 'D' : 'Cambodian', 'L' : 'Laotion', 'A': 'Asian' })
+#2.
+df['Descent'] = df['Descent'].replace(['I', 'U', 'G', 'S', 'P'], 'O')
+#3.
+df['Descent'] = df['Descent'].fillna('X').replace('-', 'X')
+#4
+df['Descent'] = df['Descent'].replace({'H': 'Hispanic', 'W' : 'White', 'O' : 'Other', 'B' : 'Black', 'X' : 'Unknown'})
+#5.
+df['Descent'].value_counts()
+```
+
+![alt text](image-25.png)
+
+
+##### The Location field contains Latitude and Longitude separated by a comma. 
+    
+1. Create two new fields in the your dataframe - one for Latitude and one for Longitude. Neither of these fields should contain a parenthesis or comma from the original field. 
+2. Once you have these two new columns, drop the Location field.
+3. Drop the rows that have 0.0 for both Latitude and Longitudes.  You can do this before or after you split the field.
+4. Show your dataframe with .info to show the new columns.
+5. Run .head() on your dataframe to show the values in the new columns.
+
+```
+# Create two new fields - one for Latitude and one for Longitude
+df['Latitude'] = df['Location'].apply(lambda x: x.strip('()').split(', -')[0])
+df['Longitude'] = df['Location'].apply(lambda x: x.strip('()').split('-')[-1])
+
+#Drop lacation field
+df.drop(columns = ["Location"], inplace = True)
+
+#Drop Rows that have 0.0 for both columns
+df.drop(df[(df['Latitude'] == 0.0) & (df['Longitude'] == 0.0)].index, inplace=True)
+
+df.info()
+df.head()
+```
+
+![alt text](image-26.png)
+
+![alt text](image-27.png)
+
+##### Split out MO_Codes into its own dataframe with only two fields: DR_Number and MO_Codes.
+
+```
+# looking at MO codes shows many codes per incident
+# let's separate these out and put into a separate dataframe for later use
+df['MO_Codes'].head(10)
+```
+
+![alt text](image-28.png)
+
+```
+# use pandas explode to separate field: 
+# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.explode.html
+mo = df[['DR_Number','MO_Codes']]
+mo.shape
+mo = mo.dropna()
+mo.shape
+
+mo["MO_Codes"] = mo["MO_Codes"].str.split()
+mo_df = mo.explode("MO_Codes")
+mo_df.head(10)
+mo_df["MO_Codes"].value_counts()
+mo_df.info()
+
+(550202, 2)
+
+(465652, 2)
+```
+
+![alt text](image-29.png)
+
+##### Dropped MO_Codes from the original dataframe. Show the final main dataframe with .info().
+
+```
+df.drop(columns = ['MO_Codes'], inplace = True)
+df.info()
+```
+
+![alt text](image-30.png)
+
+
+##### Save clean files to new csv files for later use
+
+```
+# write out the clean file to be used in Ex 2 Introduction to SQL
+df.to_csv('Final Traffic.csv', index = False)
+```
+
+```
+# write out the clean file to be used in Ex 2 Introduction to SQL
+mo_df.to_csv('MO per accident.csv', index = False)
 ```

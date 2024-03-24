@@ -1,5 +1,5 @@
 ---
-title: Analyzing COVID-19 Trends Using R: A Comprehensive Exploration
+title: Analyzing COVID-19 Trends Using R - A Comprehensive Exploration
 seo_title: Portfolio Project 3
 summary: Analyzed data on new daily covid-19 cases and deaths in European Union (EU) and European Economic Area (EEA) countries. (1) Perform an Exploratory Data Analysis (EDA), (2) perform some hypothesis testing, (3) perform some correlation testing, and (4) fit and describe a linear regression model.
 description: Portfolio Project 3 is my third portfolio project.
@@ -15,12 +15,17 @@ publishDate:
 feature_image: r_image.jpg
 feature_image_alt: Web design
 
-project types: 
-    - Personal
-    - Acedemic
+tags:
+  - R
 
-techstack:
-    - R
+categories:
+  - Statistics
+  - Math
+  - EDA
+
+project types: 
+  - Academic
+  - Personal
 #live_url: https://hugo-liftoff.netlify.app
 source_url: https://github.com/wjh18/hugo-liftoff
 ---

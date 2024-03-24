@@ -1,5 +1,5 @@
 ---
-title: Exploring Abalone Data with R: Unveiling Insights for Sustainable Harvesting Practices - Part 2
+title: Exploring Abalone Data with R - Unveiling Insights for Sustainable Harvesting Practices (Part 2)
 seo_title: Stats with R - Part 2
 summary: This project was an assignment performed in my statistics with R course and is part two for analyzing abalone data. Exploratory data analysis was done to gain insights on alternative abalone harvesting methods.
 description: Portfolio Project 2 is my second portfolio project.
@@ -15,12 +15,17 @@ publishDate:
 feature_image: r_image.jpg
 feature_image_alt: Web design
 
-project types: 
-  - Acedemic
-  - Personal
+tags:
+  - R
 
-techstack:
-    - R
+categories:
+  - Statistics
+  - Math
+  - EDA
+
+project types: 
+  - Academic
+  - Personal
 source_url: https://github.com/wjh18/hugo-liftoff
 ---
 
