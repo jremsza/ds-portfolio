@@ -12,8 +12,8 @@ lastmod:
 expiryDate: 
 publishDate: 
 
-feature_image: r_image.jpg
-feature_image_alt: Web design
+#feature_image: r_image.jpg
+#feature_image_alt: Web design
 
 tags:
   - R
@@ -26,7 +26,11 @@ categories:
 project types: 
   - Academic
   - Personal
-source_url: https://github.com/wjh18/hugo-liftoff
+
+source_url:
+
+techstack:
+    - R 
 ---
 
 ### Program Setup

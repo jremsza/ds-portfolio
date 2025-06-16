@@ -12,8 +12,8 @@ lastmod:
 expiryDate: 
 publishDate: 
 
-feature_image: r_image.jpg
-feature_image_alt: Web design
+#feature_image: r_image.jpg
+#feature_image_alt: Web design
 
 tags:
   - R
@@ -26,8 +26,11 @@ categories:
 project types: 
   - Academic
   - Personal
+
+techstack:
+  - R 
 #live_url: https://hugo-liftoff.netlify.app
-source_url: https://github.com/wjh18/hugo-liftoff
+#source_url: https://github.com/wjh18/hugo-liftoff
 ---
 
 ### Description:  

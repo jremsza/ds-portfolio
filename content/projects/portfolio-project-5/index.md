@@ -12,8 +12,8 @@ lastmod:
 expiryDate: 
 publishDate: 
 
-feature_image: 
-feature_image_alt: 
+#feature_image: 
+#feature_image_alt: 
 
 
 tags:
@@ -32,8 +32,9 @@ project types:
 techstack:
     - Python
     - SQL
+
 #live_url: https://hugo-liftoff.netlify.app
-source_url: https://github.com/wjh18/hugo-liftoff
+#source_url: https://github.com/wjh18/hugo-liftoff
 ---
 
 ### Objectives

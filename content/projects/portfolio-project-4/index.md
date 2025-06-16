@@ -12,8 +12,8 @@ lastmod:
 expiryDate: 
 publishDate: 
 
-feature_image: py.png
-feature_image_alt: py.png
+#feature_image: py.png
+#feature_image_alt: py.png
 
 tags:
   - Python
@@ -25,6 +25,10 @@ categories:
 project types: 
   - Academic
   - Personal
+
+techstack:
+  - Python 
+
 #live_url: https://hugo-liftoff.netlify.app
 source_url: https://github.com/wjh18/hugo-liftoff
 ---

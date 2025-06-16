@@ -1,10 +1,10 @@
-
 ---
 title: "Benchmarking Linear Regression with Concurrency in Go"
-course: Data Engineering with Go
+course: "Data Engineering with Go"
 summary: "A systems-level machine learning project comparing serial and concurrent linear regression implementations in Go using the Boston Housing dataset."
 tags: ["Go", "Concurrency", "Benchmarking", "Linear Regression", "Performance"]
 categories: ["Systems Projects", "Portfolio Projects"]
+techstack: "Go"
 ---
 
 ## ⚙️ Benchmarking Linear Regression with Concurrency in Go
