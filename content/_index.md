@@ -25,12 +25,14 @@ projects_section_heading: Technical Portfolio
 - **MilliporeSigma - Product Data Specialist**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milwaukee, WI (Feb 2024 - Present)
 
   - Owned and improved product data quality for a 350,000+ product portfolio, leading to improved findability and customer satisfaction.
-  - Collaborated with stakeholders across the organization to leverage high-quality product data  as a strategic asset, utilizing data analysis tools (PySpark, SQL) enabling improved operational effectiveness and informed decision making.
-  - Proficient in using PySpark and the Palantir Foundry ecosystem to ingest new datasets, create efficient data pipelines and build effective data visualizations
-  - Established and maintained clear data ownership, quality rules, and schemas for eCommerce, ensuring data integrity across a platform supporting 40M+ annual visitors and millions of orders.
-  - Collaborated on complex product data projects, minimizing risk and maximizing efficiency. Successfully delivered on OKR projects, resulting in website feature improvement.
+  - Managed critical data governance for e-commerce product information, precisely creating, updating, and deleting values in the information management system using Agile methodologies and Jira to directly influence data display and enhance the customer shopping experience.
+  - Collaborated with stakeholders across the organization to leverage high-quality product data as a strategic asset, utilizing data analysis tools (PySpark, SQL) enabling improved operational effectiveness and informed decision making.
+  - Established and maintained clear data ownership, data governance, and schemas for eCommerce product data, ensuring data integrity across the platform supporting 40M+ annual visitors and millions of orders.
+  - Proficient in the Palantir Foundry ecosystem to perform data cleansing, transformations and ingest new datasets to create efficient data pipelines.
+  - Leveraged SQL and Python for data manipulation and transformation within GCP in collaboration with the Item Search Team, enabling in-depth analysis of large datasets for keyword relevance testing and impactful insight generation.
   - Developed and implemented integrated data strategies across domains, identifying and driving data improvement initiatives aligned with the company's data strategy.
-  - Developed proficiency in the company's product information management (PIM) system, streamlining data management processes and facilitating data quality improvements.
+  - Functioned as the team's dedicated Python developer, building custom applications locally for complex JSON parsing, scientific article web scraping, and creating executable tools that directly improved team productivity.
+
 
 - **MilliporeSigma - Anaytical Development Chemist**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milwaukee, WI (Oct 2019 - Feb 2024)
   
