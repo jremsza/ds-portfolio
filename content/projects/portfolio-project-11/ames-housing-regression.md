@@ -3,6 +3,7 @@ title: "Ames Housing Prices: Regression Modeling"
 summary: "A machine learning project that predicts house prices in Ames, Iowa using Lasso, Ridge, and ElasticNet regression with cross-validation and hyperparameter tuning."
 tags: ["Regression", "ElasticNet", "EDA", "Feature Engineering", "Supervised Learning"]
 categories: ["Machine Learning", "Portfolio Projects"]
+project types: ["Academic", "Personal"]
 techstack: "Python"
 ---
 

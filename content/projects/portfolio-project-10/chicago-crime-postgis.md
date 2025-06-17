@@ -1,10 +1,10 @@
 ---
 title: "Chicago Crime Analysis with PostGIS"
-course: "Data Preperation and Database Systems"
 summary: "A geospatial data project analyzing Chicago crime incidents using SQL and PostGIS. Includes choropleth maps of gun-related crimes, spatial joins, and distance metrics between crime locations and police stations."
 tags: ["PostGIS", "SQL", "Geospatial Analysis", "Crime Data", "Choropleth Map"]
 categories: ["Geospatial Projects", "Portfolio Projects"]
 techstack: ["Python", "PostGIS", "PostgreSQL"]
+project types: ["Academic", "Personal"]
 ---
 
 ## 🚨 Chicago Crime Analysis with PostGIS

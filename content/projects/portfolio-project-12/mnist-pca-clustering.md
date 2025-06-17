@@ -1,10 +1,10 @@
 ---
 title: "MNIST Digit Recognition with PCA and Clustering"
 summary: "A machine learning project that classifies handwritten digits using a Random Forest classifier and explores dimensionality reduction with PCA and K-Means clustering."
-course: "Machine Learning"
 tags: ["MNIST", "PCA", "Clustering", "Random Forest", "Unsupervised Learning"]
 categories: ["Machine Learning", "Portfolio Projects"]
 techstack: "Python"
+project types: ["Academic", "Personal"]
 ---
 
 ## 🔢 MNIST Digit Recognition with PCA and Clustering
