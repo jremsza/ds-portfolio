@@ -30,7 +30,7 @@ project types:
 techstack:
     - R 
 #live_url: https://hugo-liftoff.netlify.app
-source_url: https://github.com/wjh18/hugo-liftoff
+source_url: https://github.com/jremsza/abolone_harvest_project
 
 ---
 

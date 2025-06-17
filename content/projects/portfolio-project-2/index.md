@@ -27,10 +27,11 @@ project types:
   - Academic
   - Personal
 
-source_url:
+source_url: https://github.com/jremsza/abolone_harvest_project
 
 techstack:
     - R 
+    
 ---
 
 ### Program Setup
