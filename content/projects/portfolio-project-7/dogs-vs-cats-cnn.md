@@ -1,10 +1,22 @@
 ---
 title: "Dogs vs Cats Image Classification"
 summary: "A computer vision project using CNNs to classify images of cats and dogs from the Kaggle dataset. Includes image preprocessing, data augmentation, and CNN model design using TensorFlow/Keras."
-tags: ["Computer Vision", "CNN", "TensorFlow", "Deep Learning", "Image Classification"]
-categories: ["Machine Learning", "Portfolio Projects"]
-project types: ["Academic", "Personal"]
-techstack: "Python"
+
+tags:
+  - Computer Vision
+  - CNN
+  - TensorFlow
+  - Deep Learning
+  - Image Classification
+
+categories:
+  - Machine Learning
+
+project types: 
+  - Academic
+  - Personal
+techstack:
+    - Python
 ---
 
 ## 🐶🐱 Dogs vs Cats: Image Classification with CNNs

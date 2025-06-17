@@ -1,10 +1,22 @@
 ---
 title: "Amazon Product Review Clustering with NLP"
 summary: "An NLP project exploring text vectorization, topic modeling, and clustering on Amazon product reviews using TF-IDF, Word2Vec, LDA, and t-SNE visualizations."
-tags: ["NLP", "Clustering", "Text Mining", "LDA", "t-SNE", "Amazon Reviews"]
-categories: ["Natural Language Processing", "Portfolio Projects"]
-techstack: "Python"
-project types: ["Academic", "Personal"]  
+
+tags:
+  - Clustering
+  - NLP
+  - Text Mining
+  - LDA
+  - t-SNE
+
+categories:
+  - Natural Language Processing
+
+project types: 
+  - Academic
+  - Personal
+techstack:
+    - Python
 ---
 
 ## 📝 Amazon Product Reviews: NLP Exploration and Sentiment Clustering

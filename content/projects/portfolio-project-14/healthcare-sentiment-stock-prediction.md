@@ -1,10 +1,24 @@
 ---
 title: "Predicting Healthcare Sector Stock Performance with News Sentiment"
 summary: "A full-stack data science project that integrates NLP, knowledge graphs, and machine learning to analyze how healthcare-related news sentiment impacts stock market movements."
-tags: ["NLP", "Sentiment Analysis", "XGBoost", "Healthcare", "Knowledge Graph", "Stock Prediction"]
-categories: ["End-to-End Projects", "Portfolio Projects"]
-techstack: ["Python", "Gel"]
-project types: ["Academic", "End-to-End"]
+
+tags:
+  - NLP
+  - Sentiment Analysis
+  - XGBoost
+  - Knowledge Graph
+
+categories:
+  - End-to-End
+  - Database
+
+project types: 
+  - Academic
+  - Personal
+
+techstack:
+    - Python
+    - Gel
 ---
 
 ## 🧬 Predicting Healthcare Stock Performance with News Sentiment

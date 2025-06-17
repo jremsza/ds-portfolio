@@ -1,10 +1,22 @@
 ---
 title: "Brain Tumor Detection with CNNs"
 summary: "A healthcare-focused image classification project using Convolutional Neural Networks to detect brain tumors from MRI scans. Includes image preprocessing, CNN modeling, and accuracy evaluation."
-tags: ["Computer Vision", "Deep Learning", "Healthcare", "CNN", "Medical Imaging"]
-categories: ["Machine Learning", "Portfolio Projects"]
-project types: ["Academic", "Personal"]
-techstack: "Python"
+
+tags:
+  - Computer Vision
+  - CNN
+  - TensorFlow
+  - Deep Learning
+  - Medical Imaging
+
+categories:
+  - Machine Learning
+
+project types: 
+  - Academic
+  - Personal
+techstack:
+    - Python
 ---
 
 ## 🧠 Brain Tumor Detection with CNNs

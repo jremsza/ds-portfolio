@@ -1,10 +1,22 @@
 ---
 title: "Benchmarking Linear Regression with Concurrency in Go"
 summary: "A systems-level machine learning project comparing serial and concurrent linear regression implementations in Go using the Boston Housing dataset."
-tags: ["Go", "Concurrency", "Benchmarking", "Linear Regression", "Performance"]
-categories: ["Systems Projects", "Portfolio Projects"]
-techstack: "Go"
-project types: ["Academic", "Personal"]
+
+tags:
+  - Go
+  - Concurrency
+  - Benchmarking
+  - Linear Regression
+
+categories:
+  - Systems Projects
+  - Databases and Data preperation
+
+project types: 
+  - Academic
+  - Personal
+techstack:
+    - Go
 ---
 
 ## ⚙️ Benchmarking Linear Regression with Concurrency in Go
