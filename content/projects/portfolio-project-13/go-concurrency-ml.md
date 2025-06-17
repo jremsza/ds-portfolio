@@ -17,6 +17,8 @@ project types:
   - Personal
 techstack:
     - Go
+
+source_url: https://github.com/jremsza/goMLproject.git
 ---
 
 ## ⚙️ Benchmarking Linear Regression with Concurrency in Go
