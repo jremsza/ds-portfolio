@@ -14,7 +14,7 @@ projects_section_heading: Technical Portfolio
 
 - **MS in Data Science**
   - University: Northwestern University
-  - Expected Graduation Year: 2025 - Currently Enrolled
+  - Graduation Year: 2025
 
 - **BS in Chemistry**
   - University: Bradley University
@@ -31,7 +31,6 @@ projects_section_heading: Technical Portfolio
   - Proficient in the Palantir Foundry ecosystem to perform data cleansing, transformations and ingest new datasets to create efficient data pipelines.
   - Leveraged SQL and Python for data manipulation and transformation within GCP in collaboration with the Item Search Team, enabling in-depth analysis of large datasets for keyword relevance testing and impactful insight generation.
   - Developed and implemented integrated data strategies across domains, identifying and driving data improvement initiatives aligned with the company's data strategy.
-  - Functioned as the team's dedicated Python developer, building custom applications locally for complex JSON parsing, scientific article web scraping, and creating executable tools that directly improved team productivity.
 
 
 - **MilliporeSigma - Anaytical Development Chemist**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milwaukee, WI (Oct 2019 - Feb 2024)
