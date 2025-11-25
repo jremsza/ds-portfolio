@@ -1,86 +1,88 @@
 ---
-title: "Amazon Product Review Clustering with NLP"
-summary: "An NLP project exploring text vectorization, topic modeling, and clustering on Amazon product reviews using TF-IDF, Word2Vec, LDA, and t-SNE visualizations."
+title: "Unlocking Customer Sentiment: NLP & Topic Modeling on Amazon Reviews"
+seo_title: "Amazon NLP Clustering Project"
+summary: "Benchmarking 10 NLP techniques (TF-IDF vs. Word2Vec vs. LDA) to automatically categorize 36,000+ unstructured customer reviews into distinct product segments."
+description: "A deep dive into unsupervised learning to structure the unstructured."
+slug: amazon-nlp-clustering
+author: "Jacob Remsza"
+
+draft: false
+date: 2025-01-15T12:00:00-05:00
+lastmod: 2025-01-15T12:00:00-05:00
+expiryDate: 
+publishDate: 2025-01-15T12:00:00-05:00
+
+#feature_image: "/images/amazon_review_wordcloud.png"
+#feature_image_alt: "Word cloud showing frequent terms in Amazon reviews"
 
 tags:
-  - Clustering
   - NLP
-  - Text Mining
+  - Unsupervised Learning
   - LDA
-  - t-SNE
+  - Python
+  - Scikit-Learn
 
 categories:
+  - Data Science
+  - Machine Learning
   - Natural Language Processing
 
 project types: 
   - Academic
   - Personal
+
 techstack:
-    - Python
+  - Python
+  - Gensim (LDA, Word2Vec)
+  - Scikit-Learn
+  - NLTK
+  - Pandas
+  - Matplotlib
+
+source_url: https://github.com/jremsza/NLP_project.git
 ---
 
-## 📝 Amazon Product Reviews: NLP Exploration and Sentiment Clustering
+## 🛍️ The Business Problem
+In the e-commerce sector, the volume of customer feedback is overwhelming. Manual categorization of millions of reviews is impossible, yet businesses need to understand **what** customers are talking about to route support tickets or analyze product sentiment.
 
-**Category:** Natural Language Processing, Unsupervised Learning  
-**Tools:** Python, NLTK, scikit-learn, Gensim, t-SNE, Word2Vec, TF-IDF  
-**Skills:** Text cleaning, feature extraction, topic modeling, clustering, dimensionality reduction, data visualization
+**The Goal:** Develop an unsupervised machine learning pipeline capable of ingesting raw, unstructured text and automatically grouping reviews into coherent product categories without human intervention.
 
----
-
-### 🔍 Problem Statement
-
-This project explored the application of natural language processing techniques to analyze product reviews from a subset of the Amazon dataset. The focus was on understanding how different text representations affect clustering performance and whether sentiment and topic patterns could be identified in an unsupervised manner.
-
----
-
-### 📊 Dataset
-
-- **Source:** Amazon Product Reviews (FastText-format subset)
-- **Preprocessing:**
-  - Text normalization (punctuation removal, lowercasing)
-  - Stop word removal using NLTK
-  - Comparison of stemming vs. lemmatization
+![Word Cloud of Amazon Reviews](/images/proj-7/word-cloud.png)
+*Figure 1: Initial visualization of the raw text data. Dominated by general terms like "book", "movie", and "music", suggesting underlying categories waiting to be discovered.*
 
 ---
 
-### 🧠 NLP Techniques Explored
+## 🛍️ Project Overview
+**Goal:** Automate the categorization of vast amounts of unstructured customer feedback to assist in routing support tickets or analyzing product sentiment.
 
-- **Text Representations:**
-  - TF-IDF
-  - Word2Vec
-  - Bag-of-Words
-- **Topic Modeling:**  
-  - Latent Dirichlet Allocation (LDA) using Gensim
-- **Dimensionality Reduction:**
-  - Principal Component Analysis (PCA)
-  - t-Distributed Stochastic Neighbor Embedding (t-SNE)
+### 🔍 The Challenge
+Raw text data is messy and high-dimensional. This project explores optimal ways to represent text numerically to discover latent topics within Amazon reviews without using pre-existing labels.
 
----
+### 🛠️ Methodology
+I conducted **10 iterative experiments** to determine the best feature extraction pipeline.
+- **Preprocessing:** Regex cleaning, Lemmatization (NLTK), Stop-word removal.
+- **Vectorization:** Tested Sparse (TF-IDF) vs. Dense (Word2Vec) embeddings.
+- **Modeling:** Compared K-Means Clustering against Latent Dirichlet Allocation (LDA).
 
-### 📈 Clustering & Evaluation
+### 📊 Key Findings
+The traditional TF-IDF approach struggled to separate concepts. **LDA Topic Modeling** proved superior, successfully disentangling semantic meaning where K-Means failed.
 
-- **Clustering Methods:**
-  - K-Means clustering with silhouette score evaluation
-- **Label Interpretation:**
-  - Visual inspection of clusters via t-SNE
-  - Use of word clouds and top keywords per cluster
-- **Exploratory Classification:**
-  - Preliminary use of decision trees on topic-labeled data
+![Image](/images/proj-7/bar-chart.png)
 
----
+Figure 2: Bar Chart comparing Silhouette Scores of Experiments
 
-### 🔧 Key Techniques
+### 🏷️ Cluster Analysis
+Using the optimal LDA model (10 topics), I projected the high-dimensional data into 2D space using t-SNE. The model successfully clustered reviews into coherent groups:
 
-- Conducted 10 experiments across different preprocessing and vectorization strategies  
-- Visualized clusters using t-SNE and PCA to validate structure  
-- Integrated both unsupervised and supervised techniques to understand data structure
+![Image: Colored t-SNE Scatterplot showing distinct clusters](/images/proj-7/t-sne-8.png)
 
----
+Figure 3: A t-SNE plot generated from Experiment 8
 
-### 📌 Reflection
+- **Cluster 0:** Physical Media (Books)
+- **Cluster 1:** Visual Media (Movies/DVDs)
+- **Cluster 2:** Audio (Music/CDs)
 
-This project helped solidify my understanding of how choices in text preprocessing and feature engineering impact clustering performance and interpretability. Future directions include:
-
-- Experimenting with transformer-based embeddings (e.g., BERT)  
-- Applying sentiment scoring to cluster summaries  
-- Building a dashboard to explore review clusters interactively
+### 💻 Tech Stack
+- **Core:** Python, Pandas, Scikit-Learn
+- **NLP:** Gensim (Word2Vec, LDA), NLTK
+- **Viz:** Matplotlib, Seaborn, t-SNE
