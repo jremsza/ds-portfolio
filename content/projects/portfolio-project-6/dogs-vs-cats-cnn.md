@@ -1,114 +1,125 @@
 ---
-title: "Paw-sitive Predictions: Binary Image Classification with CNNs"
-seo_title: Dogs vs Cats CNN Project
-summary: "A custom Convolutional Neural Network (CNN) built with TensorFlow/Keras to classify images of dogs and cats with 76% accuracy, featuring data augmentation and real-time training visualization."
-description: "Portfolio Project 3 exploring Computer Vision."
-slug: dogs-vs-cats-cnn
+title: "Iterative CNN Design: Engineering High-Performance Vision Models on Prototype Hardware"
+seo_title: "Building Custom CNNs on NVIDIA RTX 5070 Ti"
+summary: "A methodological approach to Computer Vision. I benchmarked three custom CNN architectures on the unreleased RTX 5070 Ti, optimizing data pipelines to achieve 92% accuracy without transfer learning."
+description: "From 62% to 92%: An engineering journey through CNN architecture and hardware optimization."
+slug: iterative-cnn-design-rtx50
 author: Jake Remsza
-
+date: 2025-11-24
 draft: false
-date: 2025-11-22T12:00:00-05:00
-lastmod: 
-expiryDate: 
-publishDate: 
 
-feature_image: 
-feature_image_alt: 
+#feature_image: /images/dogs-vs-cats/model_comparison_chart.png
+#feature_image_alt: "Bar chart showing accuracy progression from Model 1 to Model 3"
 
 tags:
   - Computer Vision
-  - TensorFlow
-  - Deep Learning
-  - Python
+  - TensorFlow Nightly
+  - Model Architecture
+  - GPU Optimization
+  - WSL2
 
 categories:
+  - Machine Learning Engineering
   - Data Science
-  - Engineering
-  - Computer Vision
+  - Infrastructure
 
-project types: 
-  - Personal
-  - Academic
+project_types:
+  - Experimental
+  - Engineering
+
 techstack:
-    - TensorFlow
-    - Keras
-    - Python
-    - Matplotlib
+  - Python 3.10
+  - TensorFlow Nightly (v2.16+)
+  - NVIDIA CUDA 12.x (WSL2)
+  - Scikit-Learn
+  - Matplotlib
 source_url: https://github.com/jremsza/YOUR_REPO_NAME
 ---
 
 ---
 
-## 🔍 Project Summary
+## 🎯 Project Objective
 
-This project tackles a classic Computer Vision problem: binary classification of images. Using the "Dogs vs. Cats" dataset, I engineered a custom Convolutional Neural Network (CNN) capable of distinguishing between the two species. The project focuses on:
+The goal of this project was to engineer a robust binary image classifier (Dogs vs. Cats) from scratch, strictly avoiding pre-trained weights (Transfer Learning) to demonstrate mastery of CNN fundamentals.
 
-- **Pipeline Engineering:** Building robust `ImageDataGenerators` for real-time data augmentation.
-- **Model Architecture:** Designing a custom 3-layer CNN from scratch.
-- **Evaluation:** Analyzing training curves and confusion matrices to diagnose model performance.
+This project also served as an infrastructure stress test. Running on the newly released **NVIDIA RTX 5070 Ti**, I faced significant driver and JIT compilation challenges, requiring a custom **WSL2 + TensorFlow Nightly** environment to bypass "Compute Capability 12.0" incompatibilities.
 
 ---
 
-## 🏗️ Part 1: System Architecture
+## 🏗️ The Engineering Approach (Iterative Design)
 
-### The Pipeline
-To prevent overfitting on the training data, I implemented a robust preprocessing pipeline using Keras `ImageDataGenerator`. Instead of feeding static images, the generator applies random transformations during training, effectively creating a diverse, infinite dataset.
+Rather than guessing hyperparameters, I adopted a scientific approach, designing and benchmarking three distinct architectures to isolate performance drivers.
 
-**Augmentation Techniques Used:**
-* **Rescaling:** Normalizing pixel values (1./255) for faster convergence.
-* **Shear & Zoom:** Random geometric distortions to force the model to learn invariant features.
-* **Horizontal Flips:** Mirroring images to ensure orientation doesn't bias predictions.
+### 🧪 Experiment 1: The Baseline
+* **Architecture:** Shallow network (2 Conv Blocks), `Softmax` output.
+* **Hypothesis:** A simple model can capture basic shapes.
+* **Result:** **Underfitting (62% Accuracy)**. The model lacked the capacity to distinguish subtle features like snout length or ear texture.
 
-### The Custom CNN Model
-I eschewed pre-trained models (like ResNet) to build a custom architecture from the ground up, allowing for deeper understanding of feature extraction.
+### 🧪 Experiment 2: The "Deep" Model
+* **Architecture:** Deep network (4 Conv Blocks, up to 256 filters), heavy Dropout.
+* **Hypothesis:** More parameters = better feature extraction.
+* **Result:** **Overfitting (76% Accuracy)**. The model memorized training noise. Validation loss spiked while training accuracy hit 99%, a classic variance error.
 
-* **Input Layer:** 64x64x3 (RGB Images)
-* **Feature Extraction:** 3 distinct blocks of `Conv2D` (32 filters) + `MaxPooling2D` (2x2).
-* **Classification Head:** A `Flatten` layer feeding into a fully connected `Dense` layer (64 units) and a final `Sigmoid` output unit for binary probability.
+### 🏆 Experiment 3: The Optimized "Binary Brain"
+* **Architecture:** Balanced depth (3 Conv Blocks), Aggressive Augmentation, **Binary Logic**.
+* **Key Innovation:** Switched from `Categorical Crossentropy` (Softmax) to `Binary Crossentropy` (Sigmoid). This fundamental change in loss function stabilized gradients and solved mode collapse.
+* **Result:** **92% Accuracy**. The champion model.
 
 ---
 
-## 📊 Part 2: Performance & Evaluation
+## ⚙️ Final System Architecture (Model 3)
 
-### Training Dynamics
-The model was trained for **25 epochs** with a batch size of 32.
+The winning architecture was a custom Sequential CNN optimized for the RTX 5070 Ti's memory bandwidth.
 
-![Training History Accuracy and Loss](/images/dogs-vs-cats/training_curves.png)
-*Figure 1: The training curves (Blue) vs. Validation curves (Orange). The convergence of accuracy and the stabilization of loss indicate the model learned effectively without significant overfitting.*
+**1. The Data Pipeline (`tf.data`)**
+To prevent CPU bottlenecks, I built an asynchronous pipeline:
+* **Dynamic Normalization:** `x / 255.0` applied in parallel threads.
+* **Augmentation:** Random Rotations (10%), Flips, and Zooms to force invariant feature learning.
+* **Prefetching:** `AUTOTUNE` enabled to keep the GPU utilization >90%.
 
-### Quantitative Results
-The model achieved a final evaluation accuracy of **76.4%** on the unseen test set.
-
-| Metric | Score | Notes |
+**2. The Model Specs**
+| Layer Type | Parameters | Purpose |
 | :--- | :--- | :--- |
-| **Test Accuracy** | **76.41%** | Strong baseline for a custom-built model. |
-| **Test Loss** | **0.678** | Indicates good probabilistic confidence. |
-
-### Visualizing Predictions
-To verify the model qualitatively, I visualized a batch of predictions.
-
-![Sample Predictions Grid](/images/dogs-vs-cats/predictions.png)
-*Figure 2: A grid of test images with their predicted labels. The model successfully distinguishes distinct features like ear shape and snout length.*
-
-### Confusion Matrix Analysis
-![Confusion Matrix](/images/dogs-vs-cats/confusion_matrix.png)
-*Figure 3: The Confusion Matrix reveals the model's specific biases. It shows a balanced performance between classes, with similar rates of False Positives (predicting Dog when it's a Cat) and False Negatives.*
+| **Input** | 180x180x3 | RGB Image Tensor |
+| **Conv2D Block 1** | 32 filters, 3x3 | Edge/Color detection |
+| **Conv2D Block 2** | 64 filters, 3x3 | Texture/Pattern detection |
+| **Conv2D Block 3** | 128 filters, 3x3 | High-level shape (Ears/Nose) |
+| **Dropout** | 0.5 Rate | Prevent neuron co-adaptation |
+| **Dense Output** | **1 Unit (Sigmoid)** | Binary Probability Score |
 
 ---
 
-## 📌 Conclusions & Future Work
+## 📊 Performance Analysis
 
-- **Engineering Success:** Successfully built an end-to-end vision pipeline that handles raw image data, augments it in real-time, and trains a stable neural network.
-- **Architectural Insights:** The 3-layer convolutional design proved sufficient for capturing high-level features (edges, textures) required for species differentiation.
-- **Future Roadmap:**
-    - **Transfer Learning:** Implementing VGG16 or MobileNet to boost accuracy from 76% to 95%+.
-    - **Hyperparameter Tuning:** Experimenting with dropout rates and kernel sizes to further reduce validation loss.
+### 1. Architecture Comparison
+The iterative process yielded a clear "Step Function" in performance. Moving to binary logic in Model 3 provided the massive jump to >90%.
+
+![Model Comparison Chart](/images/proj-6/model_comparison_chart.png)
+*Figure 1: Validation Accuracy comparison. Model 3 outperforms the baseline by 30 percentage points.*
+
+### 2. ROC Curve Analysis
+To prove the model wasn't just guessing the majority class, I plotted the Receiver Operating Characteristic (ROC). The curves show the distinct improvement in class separability.
+
+![ROC Curve Comparison](/images/proj-6/roc_curve_compare.png)
+*Figure 2: ROC Curves for all three experiments. Model 3 (Orange) hugs the top-left corner with an **AUC of 0.96**, indicating near-perfect separation capability.*
+
+### 3. Confusion Matrix (Balanced)
+Tested on a strictly isolated, balanced validation set (2,500 Cats / 2,500 Dogs).
+
+![Confusion Matrix](/images/proj-6/confusion_matrix.png)
+*Figure 3: Final Confusion Matrix for Model 3. The model predicts both classes with high precision (~92%), showing negligible bias toward either animal.*
+
+---
+
+## 📌 Key Takeaways
+
+1.  **Logic Matters More Than Depth:** Switching from Categorical (2 output units) to Binary (1 output unit) had a bigger impact than adding more convolutional layers.
+2.  **Infrastructure is a Feature:** Optimizing the `tf.data` pipeline for the RTX 5070 Ti reduced epoch time by 40%, allowing for faster iteration cycles.
+3.  **Data Integrity:** Identifying and fixing the "Alphabet Trap" (where validation data sorted by filename biased evaluation) was critical to getting honest metrics.
 
 ---
 
 ## 🧰 Tools Used
-
-- **TensorFlow / Keras** (Model Building)
-- **Python** (Pandas, NumPy)
-- **Matplotlib / Seaborn** (Visualization)
-- **Jupyter Notebook** (Development Environment)
+* **Hardware:** NVIDIA RTX 5070 Ti (Prototype Drivers)
+* **Environment:** WSL2 Ubuntu / TensorFlow Nightly
+* **Libraries:** Keras, Pandas, Scikit-Learn

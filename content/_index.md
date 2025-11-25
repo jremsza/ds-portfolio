@@ -1,5 +1,5 @@
 ---
-title: Data analyst with a background in chemistry. I am currently a master's student in data science at Northwestern University. I am looking for roles as a data scientist or data engineer.
+title: Data Scientist & Engineer applying 10 years of scientific rigor to Big Data. M.S. in Data Science (Northwestern University). Currently transforming product data at MilliporeSigma.
 subtitle: This is my portfolio showcasing my technical skills in data science, welcome to my page!
 seo_title: Jake Remsza | Data Specialist
 
@@ -12,7 +12,7 @@ projects_section_heading: Technical Portfolio
 
 ## Education
 
-- **MS in Data Science**
+- **MS in Data Science (Specialization in Artificial Intelligence)**
   - University: Northwestern University
   - Graduation Year: 2025
 
