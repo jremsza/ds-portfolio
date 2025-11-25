@@ -1,92 +1,115 @@
 ---
-title: "Ames Housing Prices: Regression Modeling"
-summary: "A machine learning project that predicts house prices in Ames, Iowa using Lasso, Ridge, and ElasticNet regression with cross-validation and hyperparameter tuning."
+title: "Predicting Property Values: Advanced Regression Techniques"
+date: 2023-11-25
+summary: "An end-to-end machine learning project predicting housing prices in Ames, Iowa. Features extensive EDA, custom feature engineering, and hyperparameter tuning of regularized regression models (Lasso, Ridge, ElasticNet)."
+weight: 2
 
 tags:
-  - Regression
-  - EDA
+  - Predictive Modeling
   - Feature Engineering
-  - Supervised Learning
+  - Scikit-Learn
+  - Python
+  - Data Visualization
 
 categories:
   - Machine Learning
+  - Real Estate Analytics
 
-project types: 
-  - Academic
-  - Personal
+# Link to your clean GitHub repo
+links:
+  external_link: 
+    text: "View Source Code"
+    icon: "fab fa-github"
+    url: "https://github.com/yourusername/ames-housing-prediction"
 
 techstack:
-    - Python
+    - Python (Pandas, NumPy)
+    - Scikit-Learn
+    - Matplotlib & Seaborn
 ---
 
-## 🏡 Ames Housing Prices: Regression Modeling
+## 🏠 Project Overview
 
-**Category:** Supervised Learning, Regression  
-**Tools:** Python, scikit-learn, pandas, seaborn  
-**Skills:** EDA, regression modeling, cross-validation, feature selection, regularization
+Accurate real estate valuation is critical for homeowners, investors, and tax assessors. This project leverages the Ames Housing dataset to build a robust predictive model for residential property prices. By moving beyond simple square footage calculations, I engineered features that capture the "age" and "quality" of a home to drive prediction accuracy.
 
----
-
-### 🔍 Problem Statement
-
-The goal of this project was to predict housing prices in Ames, Iowa using a variety of regression models. The dataset contains 80 features describing different aspects of residential homes, offering a rich playground for EDA, feature engineering, and modeling.
-
----
-
-### 📊 Dataset
-
-- **Source:** Kaggle’s Ames Housing Dataset  
-- **Target Variable:** `SalePrice`  
-- **Features:** 80 total, including categorical and numeric types  
-- **Preprocessing:**
-  - Missing value imputation  
-  - Categorical encoding  
-  - Outlier treatment  
-  - Feature scaling where needed
+### 🎯 The Challenge
+The dataset contains 80 explanatory variables describing (almost) every aspect of residential homes. The objective was to:
+1.  **Analyze** complex relationships between features and sale price.
+2.  **Engineer** new features to better represent property value.
+3.  **Optimize** regression models to minimize Root Mean Squared Error (RMSE).
 
 ---
 
-### 📈 Modeling Approach
+## 📊 Exploratory Data Analysis (EDA)
 
-Three types of regularized regression models were trained and compared:
+Understanding the target variable is the first step in any regression problem. I analyzed the distribution of `SalePrice` and identified a significant right skew (Skewness: 1.88), suggesting that high-end outlier homes could bias standard linear models.
 
-- **Lasso Regression**  
-- **Ridge Regression**  
-- **ElasticNet Regression**
+![sale-price-hist](/images/predict-housing/saleprice.png)
 
-The project involved:
+Figure 1: Distribution of Sale Prices. The right skew indicates a non-normal distribution, often mitigated by log-transforming the target variable.
 
-- Exploratory data analysis and correlation heatmaps  
-- Feature selection based on domain understanding and correlation  
-- Log-transformation of skewed variables  
-- Cross-validation to compare model performance  
-- Hyperparameter tuning (especially for ElasticNet)
+
+
+I also examined feature correlations to identify the strongest predictors.
+
+![correlation_heatmap](/images/predict-housing/heat-map.png)
+
+Figure 2: Heatmap of top 20 features correlated with SalePrice.
+---
+
+## 🛠️ Feature Engineering
+
+Raw data is rarely model-ready. I created domain-specific features to enhance model performance:
+* **HouseAge:** `2023 - YearBuilt` (Captures depreciation over time)
+* **YrUpdate:** `2023 - YearRemodAdd` (Accounts for renovations)
+* **GarageAge:** `2023 - GarageYrBlt`
+* **Living Area Ratio:** `GrLivArea / LotArea` (A proxy for property density)
+
+This transformation pipeline also handled missing values (imputing with 0 or mode) and encoded categorical variables using `OrdinalEncoder` for ordinal data and One-Hot Encoding for nominal data.
 
 ---
 
-### 🔧 Key Techniques
+## 🤖 Modeling & Optimization
 
-- Applied histogram and boxplots to inspect the target distribution  
-- Identified top correlated predictors with `SalePrice`  
-- Evaluated model performance with RMSE and R²  
-- Used `GridSearchCV` for tuning alpha/l1 ratios in ElasticNet
+I adopted an iterative approach, starting with a baseline model and progressively adding complexity and regularization.
+
+### 1. Baseline: Linear Regression
+* **Initial Performance:** R² = ~0.79
+* **Issue:** Prone to overfitting due to the high dimensionality of the dataset after encoding.
+
+### 2. Regularization: Ridge & Lasso
+* **Ridge (L2):** Penalizes large coefficients. Improved stability.
+* **Lasso (L1):** Performs feature selection by shrinking less important coefficients to zero.
+* **Result:** Both models improved generalization on the validation set.
+
+### 3. The Winner: ElasticNet
+I utilized `GridSearchCV` to tune hyperparameters (`alpha` and `l1_ratio`) for an ElasticNet model, which combines the strengths of both Ridge and Lasso.
+* **Best Parameters:** `{'alpha': 1.0, 'l1_ratio': 0.8}`
+* **Performance:** Validated R² score of **0.83**.
+
+![learning_curve](/images/predict-housing/learning-curve.png)
+
+Figure 3: Learning curve analysis showing the convergence of training and validation error, confirming the model is not significantly overfitting.
 
 ---
 
-### 📈 Results
+## 🚀 Key Results & Interpretation
 
-- ElasticNet performed best after tuning, striking a balance between Lasso and Ridge  
-- Achieved low RMSE and high R² values on validation data  
-- Plots of predicted vs. actual prices showed strong model fit  
-- Top predictors included `OverallQual`, `GrLivArea`, and `GarageCars`
+The ElasticNet model proved to be the most robust predictor.
+
+![reg-plot](/images/predict-housing/act-v-predict.png)
+
+Figure 4: Predicted vs. Actual Sale Prices on the validation set.
+
+**Interpreting the Results:**
+The scatter plot above illustrates the model's accuracy on unseen validation data. The red dashed line represents a perfect prediction (where Predicted Price = Actual Price). 
+
+* **Tight Clustering:** The strong alignment of points along the diagonal confirms the model's high predictive power for the majority of housing stock (under $350k).
+* **Variance at the High End:** As property values increase (>$400k), the model shows slightly higher variance. This is a common phenomenon in real estate modeling, often caused by the scarcity of luxury home data points or unique features not captured in standard columns.
 
 ---
 
-### 📌 Reflection
-
-This project illustrates the end-to-end process of building regression models on structured data. It highlights how EDA, thoughtful preprocessing, and regularization techniques can lead to strong predictive performance.
-
-**Future ideas:**
-- Try ensemble models like Gradient Boosted Trees or XGBoost  
-- Automate preprocessing with pipelines  
-- Deploy model using Flask or FastAPI
+## 💡 Key Takeaways
+* **Feature Engineering Wins:** Creating "Age" features significantly improved model interpretability and performance compared to using raw "Year" columns.
+* **Regularization is Crucial:** In datasets with many features (80+), unregularized linear regression tends to overfit. ElasticNet provided the best balance.
+* **Data Quality:** Handling missing values (e.g., converting `NaN` in "Alley" to "No Alley") was essential for utilizing the full dataset.
