@@ -47,7 +47,7 @@ The MNIST dataset consists of 70,000 grayscale images (28x28 pixels). The object
 
 Before modeling, I used dimensionality reduction techniques to understand the separability of the classes. While **PCA** explained variance, **t-SNE** (t-Distributed Stochastic Neighbor Embedding) provided a superior visualization of the digit clusters.
 
-![tsne](/images/mnist-proj/tsne-plot.png)
+![tsne](/images/mnist-proj/t-sne_plot.png)
 
 Figure 1: t-SNE projection of the MNIST dataset. Note how digits like '1' (red) form tight clusters, while '4' and '9' have overlapping boundaries, hinting at potential classification challenges.
 
@@ -87,7 +87,7 @@ model = keras.Sequential([
 ```
 ### Training Dynamics: The model was trained for 15 epochs using the Adam optimizer and SparseCategoricalCrossentropy loss.
 
-![training_curve](/images/mnsit-proj/learning-curve.png/
+![training_curve](/images/mnist-proj/learning-curve.png/)
 
 Figure 2: Learning curves showing Training vs. Validation accuracy. The model converges quickly, reaching >98% validation accuracy within 10 epochs.
 
@@ -96,21 +96,22 @@ The learning curve above is critical for validating the architecture decisions (
 * **Rapid Convergence:** The steep initial ascent shows that the optimizer (`Adam`) effectively navigated the loss landscape.
 * **Stability:** The lack of divergence between the Training (Blue) and Validation (Orange) lines confirms that the model is not memorizing the training data, but actually learning generalized features of the digits.
 
-### 🧪 Experiment Tracking: Finding the "Sweet Spot"
+### 🧪 Experiment Tracking: The Power of Hybrid Models
 
 I conducted a grid search across different architecture sizes and feature sets to identify the optimal model complexity.
 
 | Experiment | Training Loss | Train Accuracy | Val Loss | Val Accuracy | Test Accuracy |
 | :--- | :---: | :---: | :---: | :---: | :---: |
 | **1 Node** | 1.665 | 30.5% | 1.638 | 30.6% | 30.3% |
-| **8 Nodes** | 0.327 | 91.8% | 0.323 | 91.8% | 91.4% |
-| **32 Nodes** | 0.180 | 96.1% | 0.192 | 95.8% | 95.7% |
 | **64 Nodes** | 0.171 | 96.5% | 0.186 | 96.2% | 96.3% |
-| **128 Nodes (Best)** | **0.151** | **97.0%** | **0.169** | **96.7%** | **96.6%** |
+| **128 Nodes (Best Pure DNN)** | 0.151 | 97.0% | 0.169 | 96.7% | 96.6% |
 | **256 Nodes** | 0.172 | 96.7% | 0.176 | 96.5% | 96.5% |
-| **PCA (Hybrid)** | 0.087 | 98.5% | 0.115 | 97.7% | 97.7% |
+| **PCA + DNN (Overall Winner)** | **0.087** | **98.5%** | **0.115** | **97.7%** | **97.7%** |
 
-*(Note: "PCA (Hybrid)" refers to using Principal Component Analysis features as input, which achieved high accuracy but required an extra preprocessing step).*
+**Critical Insight:**
+While the 128-Node architecture was the best performing *pure* Deep Learning model, the **PCA-Hybrid approach was the overall champion**. 
+* **Why it won:** By using PCA to reduce the noisy 784-pixel input down to its principal components, we removed "visual noise" before training. 
+* **The Lesson:** This demonstrates that **feature engineering** often yields better ROI than simply increasing model complexity.
 
 **Architectural Decisions:**
 The experiment logs reveal a clear point of diminishing returns.
