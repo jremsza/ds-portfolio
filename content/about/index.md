@@ -6,7 +6,7 @@ seo_title: About
 description: Learn more about my background and experience.
 ---
 
-## Data Scientist | Data Engineer | Ex-Chemist
+## Data Scientist | Engineer | Ex-Chemist
 
 I am a Data Scientist and Engineer combining a decade of scientific rigor with modern big data architectures. With a background as a Chemist, I spent ten years mastering the lifecycle of experimental data—from hypothesis generation to statistical analysis and stakeholder presentation. I have since pivoted this analytical foundation into the digital realm, recently completing my M.S. in Data Science at Northwestern University with a specialization in Artificial Intelligence.
 

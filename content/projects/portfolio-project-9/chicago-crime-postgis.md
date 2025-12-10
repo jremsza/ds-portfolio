@@ -64,7 +64,7 @@ Using PostGIS distance queries, I identified specific city blocks that experienc
 Figure 2: Spatial analysis highlighting blocks (red markers) with gun-related arrests that exceed the median response distance from the nearest police station.
 
 ### 3. Data Integrity in Crime Reporting
-An analysis of hourly crime trends revealed a near-identical temporal pattern between **Battery** and **Assault** cases, despite Battery having a higher raw count. This suggests:
+An analysis of hourly crime trends revealed a near-perfect temporal correlation between Battery and Assault cases. While Battery occurs more frequently, both crimes react identically to temporal factors. This suggests:
 * These crimes are likely reported interchangeably by officers or dispatchers.
 * Predictive models should treat these categories as correlated features rather than independent events to avoid collinearity issues.
 
