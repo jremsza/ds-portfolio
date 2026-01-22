@@ -1,7 +1,7 @@
 ---
-title: Data Scientist & Engineer applying 10 years of scientific rigor to Big Data. M.S. in Data Science (Northwestern University). Currently transforming product data at MilliporeSigma.
+title: Data Scientist & Engineer applying over 10 years of scientific rigor to Big Data. M.S. in Data Science (Northwestern University). Currently transforming product data at MilliporeSigma.
 subtitle: This is my portfolio showcasing my technical skills in data science, welcome to my page!
-seo_title: Jake Remsza | Data Specialist
+seo_title: Jake Remsza | Analytics Engineer
 
 primary_cta_page: "about"
 secondary_cta_page: "projects"
@@ -22,7 +22,7 @@ projects_section_heading: Technical Portfolio
   
 ## Work History
 
-- **MilliporeSigma - Product Data Specialist**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milwaukee, WI (Feb 2024 - Present)
+- **MilliporeSigma - Product Data Analytics Engineer**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Milwaukee, WI (Feb 2024 - Present)
 
   - Owned and improved product data quality for a 350,000+ product portfolio, leading to improved findability and customer satisfaction.
   - Managed critical data governance for e-commerce product information, precisely creating, updating, and deleting values in the information management system using Agile methodologies and Jira to directly influence data display and enhance the customer shopping experience.

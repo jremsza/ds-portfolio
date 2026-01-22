@@ -1,5 +1,5 @@
 ---
-title: "Iterative CNN Design: Engineering High-Performance Vision Models on Prototype Hardware"
+title: "Iterative CNN Design: Engineering High-Performance Vision Models on NVIDIA Hardware"
 seo_title: "Building Custom CNNs on NVIDIA RTX 5070 Ti"
 summary: "A methodological approach to Computer Vision. I benchmarked three custom CNN architectures on the unreleased RTX 5070 Ti, optimizing data pipelines to achieve 92% accuracy without transfer learning."
 description: "From 62% to 92%: An engineering journey through CNN architecture and hardware optimization."
